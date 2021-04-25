@@ -40,7 +40,24 @@ class Cell {
     }
 
     neighbours() {
-        list_of_neighbours = new Array();
+        const list_of_neighbours = new Array();
         
+        if(this.north) {
+            list_of_neighbours.push(this.north);
+        }
+        if(this.south) {
+            list_of_neighbours.push(this.south);
+        }
+        if(this.east) {
+            list_of_neighbours.push(this.east);
+        }
+        if(this.west) {
+            list_of_neighbours.push(this.west);
+        }
+        return list_of_neighbours;
+    }
+
+    random_neighbour() {
+
     }
 }

@@ -14,13 +14,45 @@ var ctx = canvas.getContext('2d');
 // ctx.lineTo(300, 100);
 // ctx.stroke();
 
+class Circle {
+
+    constructor(x, y, radius, speed) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+        this.speed = speed;
+    }
+
+}
+
+
+
+var x = 200;
+var y = 200;
+var dx = -0.000002;
+var dy = 0.00009;
+
+var radius = 30
 
 function animate() {
     requestAnimationFrame(animate);
+    ctx.clearRect(0, 0, innerWidth, innerHeight);
     ctx.beginPath();
-    ctx.arc(200, 200, 30, 0, Math.PI * 2 + 1, false);
+    ctx.arc(x, y, radius, 0, Math.PI * 2 + 1, false);
     ctx.strokeStyle = 'blue';
     ctx.stroke();
+    
+
+    if (x + radius > innerWidth || x - radius < 0) {
+        dx *= -1;
+    }
+
+    if (y + radius > innerHeight || y - radius < 0) {
+        dy *= -1;
+    }
+
+    x += dx;
+    y += dy;
 }
 
 animate();
