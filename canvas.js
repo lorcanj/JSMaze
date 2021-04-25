@@ -5,6 +5,8 @@ canvas.height = window.innerHeight;
 
 var ctx = canvas.getContext('2d');
 
+ctx.fillStyle = 'black';
+
 // ctx.fillRect(100, 100, 1000, 100)
 
 //Line
@@ -29,7 +31,7 @@ class Circle {
 
 var x = 200;
 var y = 200;
-var dx = -0.000002;
+var dx = 0;
 var dy = 0.00009;
 
 var radius = 30
