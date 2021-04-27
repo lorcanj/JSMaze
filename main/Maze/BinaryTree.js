@@ -1,5 +1,5 @@
-import {Grid} from "./Structure/Grid.js"
-import {Cell} from "./Structure/Cell.js"
+import Grid from "./Structure/Grid.js";
+import Cell from "./Structure/Cell.js";
 
 
 class BinaryTree {
@@ -25,3 +25,5 @@ class BinaryTree {
         return grid; 
     }
 }
+
+export default BinaryTree;

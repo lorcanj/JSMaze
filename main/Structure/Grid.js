@@ -1,22 +1,23 @@
-import {Cell} from "./Cell.js"
+import Cell from "./Cell.js";
 
 
-export default class Grid {
+ class Grid {
     constructor(rows, columns) {
         this.rows = rows;
         this.columns = columns;
-        this.plane_grid 
+        this.plane_grid = this.prepare_grid();
+        this.configure_cells();
     }
 
-    each_row() {
-        for (var row = 0; row < this.rows; row++) {
+    * each_row() {
+        for (var row = 0;  row < this.rows; row++) {
             yield this.plane_grid[row];
         }
     }
 
-    each_cell() {
-        for (row of this.each_row()) {
-            for(cell of row) {
+    * each_cell() {
+        for (var row of this.each_row()) {
+            for(var cell of row) {
                 yield cell;
             }
         }
@@ -38,9 +39,9 @@ export default class Grid {
     }
 
     configure_cells() {
-        for (cell of this.each_cell()) {
-            row = cell.row;
-            col = cell.column;
+        for (var cell of this.each_cell()) {
+            var row = cell.row;
+            var col = cell.column;
 
             cell.north = this.check_cell(row - 1, col)
             cell.south = this.check_cell(row + 1, col)
@@ -69,3 +70,6 @@ export default class Grid {
         return this.rows * this.columns;
     }
 }
+
+
+export default Grid;
