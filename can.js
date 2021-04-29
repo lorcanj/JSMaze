@@ -11,6 +11,8 @@ var ctx = canvas.getContext('2d');
 ctx.fillStyle='black';
 ctx.fillRect(20, 20, 150, 10);  
 
+//need to implement the maze creator before the draw thing is called!!!!!!
+
 var g = new Grid(30, 30);
 
 Draw.draw_maze(g, canvas);
