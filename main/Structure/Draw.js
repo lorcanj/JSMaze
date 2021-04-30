@@ -3,7 +3,8 @@ import Cell from './Cell.js';
 
  class Draw {
 
-    static draw_maze(grid, canvas, cell_size=10) {
+    static draw_maze(grid, canvas) {
+        var cell_size = canvas.width / grid.columns;
         var ctx = canvas.getContext('2d');
         
         for (var cell of grid.each_cell()) {
@@ -37,10 +38,6 @@ import Cell from './Cell.js';
                 ctx.stroke();
             }
         }
-
-
-        ctx.fillStyle = "blue";
-        ctx.fillRect(30, 30, 50, 50);
     }
 }
 

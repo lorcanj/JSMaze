@@ -1,7 +1,7 @@
 import Cell from "./Cell.js";
 
-
  class Grid {
+
     constructor(rows, columns) {
         this.rows = rows;
         this.columns = columns;
@@ -49,6 +49,8 @@ import Cell from "./Cell.js";
             cell.east = this.check_cell(row, col + 1)
         }
     }
+
+
 
     check_cell(row, column) {
         if (row < 0 || row > this.rows - 1) {

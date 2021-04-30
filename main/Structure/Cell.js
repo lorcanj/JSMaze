@@ -8,17 +8,18 @@ class Cell {
         this.west = null;
         this.links = new Map();
     }
-
+    // need to update the functions with map to use the correct methods
+    // check the bookmark
     link(cell, bidi=true) {
-        this.links[cell] = true;
+        this.links.set(cell, true);
         if(bidi) {
             cell.link(this, false);
         }
         return this;
     }
 
-    unlink(cell, bidi=True) {
-        this.links.get(cell, null);
+    unlink(cell, bidi=true) {
+        this.links.delete(cell);
         if(bidi) {
             cell.unlink(this, false);
         }
@@ -33,14 +34,14 @@ class Cell {
         if(!cell) {
             return false;
         }
-        if(cell in this.links) {
+        if(this.links.has(cell)) {
             return true;
         }
         return false;
     }
 
     neighbours() {
-        const list_of_neighbours = new Array();
+        var list_of_neighbours = new Array();
         
         if(this.north) {
             list_of_neighbours.push(this.north);
@@ -58,7 +59,10 @@ class Cell {
     }
 
     random_neighbour() {
-
+        var neighbours = this.neighbours();
+        var number_of_neighbours = neighbours.length - 1;
+        var random_number = Math.round(Math.random() * number_of_neighbours);
+        return neighbours[random_number];
     }
 }
 

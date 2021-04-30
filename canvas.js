@@ -31,8 +31,8 @@ class Circle {
 
 var x = 200;
 var y = 200;
-var dx = 0;
-var dy = 0.00009;
+var dx = 20;
+var dy = 20;
 
 var radius = 30
 
