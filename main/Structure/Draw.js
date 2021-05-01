@@ -13,7 +13,10 @@ import Cell from './Cell.js';
 
             var x2 = (cell.column + 1) * cell_size;
             var y2 = (cell.row + 1) * cell_size;
+            
 
+            // for the below I could try animating the lines from x1 to x2
+            // rather than it being drawn in one go
             if (cell.north == null) {
                 ctx.moveTo(x1, y1);
                 ctx.lineTo(x2, y1);
@@ -38,6 +41,11 @@ import Cell from './Cell.js';
                 ctx.stroke();
             }
         }
+    }
+    // here I want to write a function that takes 2 points, breaks
+    // it down to a given number of sections and then animate from point to point
+    static animate_lines(){
+
     }
 }
 
