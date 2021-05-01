@@ -1,5 +1,11 @@
 #canvas_layout {
-    margin-left: 70px;
+    width: 600;
+    height: 520;
     
+}
+
+#mycanvas {
+    width: 500;
+    height: 500;
 }
 
