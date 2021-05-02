@@ -1,11 +1,14 @@
 #canvas_layout {
     width: 600;
     height: 520;
+    margin-top: 20;
+    padding-top: 20;
     
 }
 
 #mycanvas {
-    width: 500;
-    height: 500;
+    width: 500px;
+    height: 500px;
+    padding-top: 20px;
 }
 
