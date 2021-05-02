@@ -1,6 +1,7 @@
 import Grid from './main/Structure/Grid.js';
 import Draw from './main/Structure/Draw.js';
 import BinaryTree from './main/Maze/BinaryTree.js';
+import Sidewinder from './main/Maze/Sidewinder.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     
@@ -13,8 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         var g = new Grid(10, 10);
 
-        var b = BinaryTree.create(g);
-
+        //BinaryTree.create(g);
+        Sidewinder.create(g);
         Draw.draw_maze(g, canvas);
     }
 
