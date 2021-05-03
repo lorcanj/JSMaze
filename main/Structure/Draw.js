@@ -7,6 +7,8 @@ import Cell from './Cell.js';
     static dy = 0.5;
 
     static draw_maze(grid, canvas) {
+        // cell_size should be a property of cell or grid
+        // this should probably be moved
         var cell_size = canvas.width / grid.columns;
         window.ctx = canvas.getContext('2d');
         
@@ -35,6 +37,9 @@ import Cell from './Cell.js';
                 Draw.animate_east(x1, x2, y2);
             }
         }
+
+
+
     }
     // here I want to write a function that takes 2 points, breaks
     // it down to a given number of sections and then animate from point to point
@@ -80,6 +85,18 @@ import Cell from './Cell.js';
         window.ctx.stroke();
         //x1 += Draw.dx;
         
+    }
+
+    static display_distance(grid, canvas) {
+        // change this to the commented part to see if it prints out the cell value
+        var cell_size = canvas.width / grid.columns;
+        window.ctx.font = "50px Georgia";
+        // window.ctx.fillText("Hello World!", 50, 50);
+        for (var cell of grid.each_cell()) {
+            var x = cell.column + (cell_size / 2);
+            var y = cell.row + (cell_size / 2);
+            window.ctx.fillText(cell.value, x, y);
+        }
     }
 }
 
