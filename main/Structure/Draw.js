@@ -90,11 +90,10 @@ import Cell from './Cell.js';
     static display_distance(grid, canvas) {
         // change this to the commented part to see if it prints out the cell value
         var cell_size = canvas.width / grid.columns;
-        window.ctx.font = "50px Georgia";
-        // window.ctx.fillText("Hello World!", 50, 50);
+        window.ctx.font = "20px Georgia";
         for (var cell of grid.each_cell()) {
-            var x = cell.column + (cell_size / 2);
-            var y = cell.row + (cell_size / 2);
+            var x = (cell.column * cell_size) + (cell_size / 2);
+            var y = (cell.row * cell_size) + (cell_size / 2);
             window.ctx.fillText(cell.value, x, y);
         }
     }
