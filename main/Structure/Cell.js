@@ -29,7 +29,7 @@ class Cell {
         return self;
     }
 
-    a_links() {
+    retrieve_links() {
         //return Array.from(Object.keys(this.links));
         return Object.keys(this.links);
     }
@@ -64,8 +64,8 @@ class Cell {
 
     random_neighbour() {
         var neighbours = this.neighbours();
-        var number_of_neighbours = neighbours.length - 1;
-        var random_number = Math.round(Math.random() * number_of_neighbours);
+        var number_of_neighbours = neighbours.length;
+        var random_number = Math.floor(Math.random() * number_of_neighbours);
         return neighbours[random_number];
     }
 
@@ -94,32 +94,6 @@ class Cell {
         }
         return distances;
     }
-
-    // distances() {
-	// 	let distances = new Distances(this);
-	// 	let frontier = [this];
-        
-	// 	while (frontier.length > 0) {
-	// 		let new_frontier = [];
-
-	// 		for (let i = 0; i < frontier.length; i += 1) {
-	// 			let cell = frontier[i];
-	// 			for (var link in cell.links) {
-	// 				let linkedCell = cell.links[link];
-	// 				if (linkedCell && distances.get_cell(linkedCell) == undefined) {
-	// 					distances.set_cell(linkedCell, distances.get_cell(cell) + 1)
-    //                     linkedCell.value = "hello!";
-	// 					new_frontier.push(linkedCell);
-	// 				}
-	// 			}
-	// 		}
-
-	// 		frontier = new_frontier
-	// 	}
-
-	// 	return distances
-	// }
-
 }
 
 export default Cell;

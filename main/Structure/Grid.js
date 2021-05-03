@@ -50,8 +50,6 @@ import Cell from "./Cell.js";
         }
     }
 
-
-
     check_cell(row, column) {
         if (row < 0 || row > this.rows - 1) {
             return null;
@@ -59,12 +57,12 @@ import Cell from "./Cell.js";
         if (column < 0 || column > this.columns - 1) {
             return null;
         }
-        return this.plane_grid[row][column]
+        return this.plane_grid[row][column];
     }
 
     random_cell() {
-        row = Math.round((Math.random() * this.rows));
-        column = Math.round((Math.random() * this.columns));
+        var row = Math.floor(Math.random() * this.rows);
+        var column = Math.floor(Math.random() * this.columns);
         return this.plane_grid[row][column];
     }
 

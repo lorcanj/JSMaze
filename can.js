@@ -2,7 +2,8 @@ import Grid from './main/Structure/Grid.js';
 import Draw from './main/Structure/Draw.js';
 import BinaryTree from './main/Maze/BinaryTree.js';
 import Sidewinder from './main/Maze/Sidewinder.js';
-import Distance_Grid from './main/Structure/Distance_Grid.js'
+import Distance_Grid from './main/Structure/Distance_Grid.js';
+import AldousBroder from './main/Maze/AldousBroder.js';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -16,6 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
         
         var grid = new Distance_Grid(5, 5);
         BinaryTree.create(grid);
+        
+        // currently an issue with AldousBroder
+        //AldousBroder.create(grid);
 
         var start = grid.plane_grid[0][0];
         // need to update the function for distances in cell
