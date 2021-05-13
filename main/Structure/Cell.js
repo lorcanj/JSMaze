@@ -8,6 +8,7 @@ class Cell {
         this.south = null;
         this.east = null;
         this.west = null;
+        //this.links = {};
         this.links = new Map();
         this.value = null;
     }
@@ -30,8 +31,7 @@ class Cell {
     }
 
     retrieve_links() {
-        //return Array.from(Object.keys(this.links));
-        return Object.keys(this.links);
+        return Array.from(this.links);
     }
 
     is_linked(cell) {
@@ -81,7 +81,6 @@ class Cell {
 
             for (var cell of frontier) {
                 // linked is just the key for all the linked cells
-                //for (var linked of cell.links) {
                 for (const [key, value] of cell.links.entries()) {    
                     if (distances.return_distance(key) == undefined && distances.return_distance(cell) != undefined) {
                         distances.record_distance(key, Number(distances.return_distance(cell)) + 1);

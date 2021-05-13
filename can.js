@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
         canvas.width = 500;
         
         var grid = new Distance_Grid(5, 5);
-        BinaryTree.create(grid);
+        //BinaryTree.create(grid);
         
         // currently an issue with AldousBroder
-        //AldousBroder.create(grid);
+        AldousBroder.create(grid);
 
         var start = grid.plane_grid[0][0];
         // need to update the function for distances in cell

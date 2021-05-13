@@ -24,7 +24,6 @@ import Cell from "./Cell.js";
     }
 
     prepare_grid() {
-
         let arr = new Array(this.columns);
         for (var i = 0; i < arr.length; i++) {
             arr[i] = new Array(this.columns);

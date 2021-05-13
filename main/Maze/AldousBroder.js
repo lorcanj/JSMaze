@@ -16,7 +16,7 @@ class AldousBroder {
             }
             cell = neighbour;
         }
-        //return grid;
+        return grid;
     }
 }
 
