@@ -15,11 +15,23 @@ document.addEventListener('DOMContentLoaded', () => {
         canvas.height = 500;
         canvas.width = 500;
         
-        var grid = new Distance_Grid(5, 5);
-        //BinaryTree.create(grid);
         
-        // currently an issue with AldousBroder
-        AldousBroder.create(grid);
+        var grid = new Distance_Grid(5, 5);
+        
+        var algorithm = document.querySelector('#select_algs').value;
+        if (algorithm === "Aldous Broder") {
+            AldousBroder.create(grid);
+        }
+        else if (algorithm === "Binary Tree") {
+            BinaryTree.create(grid);
+        }
+        else if (algorithm === "Sidewinder") {
+            Sidewinder.create(grid);
+        }
+        else {
+            AldousBroder.create(grid);
+        }
+        
 
         var start = grid.plane_grid[0][0];
         // need to update the function for distances in cell
@@ -36,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     }
+
 
 });
     
