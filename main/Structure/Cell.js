@@ -8,9 +8,9 @@ class Cell {
         this.south = null;
         this.east = null;
         this.west = null;
-        //this.links = {};
         this.links = new Map();
         this.value = null;
+        
     }
     // need to update the functions with map to use the correct methods
     // check the bookmark

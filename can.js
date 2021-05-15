@@ -7,14 +7,14 @@ import AldousBroder from './main/Maze/AldousBroder.js';
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    
+    var maze_created = false;
+    var canvas = document.querySelector('#mycanvas');
     var button = document.querySelector('#create_maze');
     button.onclick = function () {
-        var canvas = document.querySelector('#mycanvas');
+        maze_created = true;
         var ctx = canvas.getContext('2d');
         canvas.height = 500;
         canvas.width = 500;
-        
         
         var grid = new Distance_Grid(5, 5);
         
@@ -32,21 +32,31 @@ document.addEventListener('DOMContentLoaded', () => {
             AldousBroder.create(grid);
         }
         
-
         var start = grid.plane_grid[0][0];
-        // need to update the function for distances in cell
+        
         var distance = start.distances();
         grid.set_distance(distance);
+
+        // grid.distances is a Distance object with the given path
+        //grid.distances = distances.path_to(grid.plane_grid[grid.rows - 1][0]);
+        
+        grid.distances = distances.path_to(grid.plane_grid[grid.rows - 1][0]);
         
         Draw.draw_maze(grid, canvas);
-        Draw.display_distance(grid, canvas);
-        //var g = new Grid(10, 10);
+        //Draw.display_distance(grid, canvas);
+        //Draw.display_path_numbers(grid, canvas);
+        Draw.display_path_nums_proper(grid, canvas);
+    }
 
-        //BinaryTree.create(g);
-        // Sidewinder.create(g);
-        // Draw.draw_maze(g, canvas);
+    var longest_path_button = document.querySelector('#longest_path');
 
-
+    longest_path_button.onclick = () => {
+        if (maze_created) {
+            // want to call the draw longest path which needs to have the Dijkstra algorithm
+        }
+        else {
+            alert("need a maze created first!");
+        }
     }
 
 

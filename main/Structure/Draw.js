@@ -96,6 +96,40 @@ import Cell from './Cell.js';
             window.ctx.fillText(cell.value, x, y);
         }
     }
+
+    static display_path_numbers(grid, canvas) {
+        // want to just draw the path of the path in the distances of the given grid
+        var cell_size = canvas.width / grid.columns;
+        window.ctx.font = "20px Georgia";
+        for (var cell in grid.distances) {
+            var x = (cell.column * cell_size) + (cell_size / 2) - 5;
+            var y = (cell.row * cell_size) + (cell_size / 2) + 1;
+            window.ctx.fillText(cell.value, x, y);
+        }
+    }
+
+    static display_path_nums_proper(grid, canvas) {
+        // want to just draw the path of the path in the distances of the given grid
+        var cell_size = canvas.width / grid.columns;
+        window.ctx.font = "20px Georgia";
+        for (var cell of grid.each_cell()) {
+            if (grid.distances.return_path().has(cell)) {
+                var x = (cell.column * cell_size) + (cell_size / 2) - 5;
+                var y = (cell.row * cell_size) + (cell_size / 2) + 1;
+                window.ctx.fillText(cell.value, x, y);
+                }
+            }
+    }
+
+    static highlight_cell(cell, canvas) {
+        var cell_size = canvas.width / grid.columns;
+        var x1 = cell.column * cell_size;
+        //var x2 = (cell.column + 1) * cell_size;
+        var y1 = cell.row * cell_size;
+        //var y2 = (cell.row + 1) * cell_size;
+        window.ctx.fillStyle = "green";
+        window.ctx.fillRect(x1, y1, cell_size, cell_size);
+    }
 }
 
 export default Draw;
