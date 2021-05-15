@@ -52,7 +52,8 @@ class Distances {
         var path = new Distances(end);
         path.cells.set(current, this.cells.get(current));
 
-        while(this.cells.get(current) != 0) {
+        var changed = false;
+        while(this.cells.get(current) !== 0) {
             for(var link of current.retrieve_links()) {
                 for (var l of link){
                     if(l.value + 1 === this.cells.get(current)) {
@@ -75,12 +76,20 @@ class Distances {
         var max_distance = 0;
         var max_cell = this.root;
 
-        for(var cell of this.cells) {
-            if(this.return_distance(cell) > max_distance) {
-                max_distance = this.return_distance(cell);
-                max_cell = cell;
+        for (const [key, value] of this.cells.entries()){
+            if (value > max_distance) {
+                max_distance = value;
+                max_cell = key;
             }
         }
+        
+        // for(var cell in this.cells) {
+        //     if(item.value > max_distance) {
+        //         max_distance = this.return_distance(cell);
+        //         max_cell = cell;
+                
+        //     }
+        // }
         return max_cell;
     }
 

@@ -113,7 +113,7 @@ import Cell from './Cell.js';
         var cell_size = canvas.width / grid.columns;
         window.ctx.font = "20px Georgia";
         for (var cell of grid.each_cell()) {
-            if (grid.distances.return_path().has(cell)) {
+            if (grid.distances.has(cell)) {
                 var x = (cell.column * cell_size) + (cell_size / 2) - 5;
                 var y = (cell.row * cell_size) + (cell_size / 2) + 1;
                 window.ctx.fillText(cell.value, x, y);

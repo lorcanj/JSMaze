@@ -39,8 +39,18 @@ document.addEventListener('DOMContentLoaded', () => {
         // want to alter the below to find the longest path
         var distance = start.distances();
         grid.set_distance(distance);
+
+        var new_start = distance.longest_path();
         
-        grid.distances = distances.path_to(grid.plane_grid[grid.rows - 1][0]);
+        var new_distances = new_start.distances();
+
+        grid.set_distance(new_distances);
+
+        var goal = new_distances.longest_path();
+
+        grid.distances = new_distances.path_to_with_end(goal, new_start);
+                
+        //grid.distances = distances.path_to(grid.plane_grid[grid.rows - 1][0]);
         
         Draw.draw_maze(grid, canvas);
         
