@@ -49,16 +49,22 @@ class Distances {
 
     path_to_with_end(start, end) {
         var current = start;
-        var path = Distances(end);
+        var path = new Distances(end);
         path.cells.set(current, this.cells.get(current));
 
         while(this.cells.get(current) != 0) {
-            for(var link of current.links) {
-
-                if(this.cells.get(link) + 1 === this.cells.get(current)) {
-                    // might have a problem at this links and the path.cells.set
-                    path.cells.set(link, this.cells.get(link));
-                    current = link;
+            for(var link of current.retrieve_links()) {
+                for (var l of link){
+                    if(l.value + 1 === this.cells.get(current)) {
+                        path.cells.set(l, this.cells.get(l));
+                        current = l;
+                        changed = true;
+                        break;
+                    }
+                }
+                if (changed) {
+                    changed = false;
+                    break;
                 }
             }
         }
